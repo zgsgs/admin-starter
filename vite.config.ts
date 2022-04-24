@@ -15,7 +15,7 @@ export default defineConfig((configEnv) => {
         'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
       },
     },
-    define: viteDefine,
+    define: viteDefine(configEnv),
     plugins: setupVitePlugins(configEnv, vitePath.src, viteEnv),
     server: {
       host: '0.0.0.0',
@@ -37,6 +37,7 @@ export default defineConfig((configEnv) => {
     // https://github.com/vitest-dev/vitest
     test: {
       include: ['test/**/*.test.ts'],
+      includeSource: ['src/**/*.{js,ts}'],
       environment: 'jsdom',
       deps: {
         inline: ['@vue', '@vueuse', 'vue-demi'],

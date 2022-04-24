@@ -7,7 +7,7 @@ import inspect from './inspect'
 import vueJsx from './jsx'
 import layouts from './layouts'
 import markdown from './markdown'
-import mock from './mock'
+// import mock from './mock'
 import pages from './pages'
 import pwa from './pwa'
 import unocss from './unocss'
@@ -36,7 +36,7 @@ export function setupVitePlugins(
     vueJsx,
     layouts,
     markdown,
-    mock,
+    // mock,
     pages,
     pwa,
     unocss,

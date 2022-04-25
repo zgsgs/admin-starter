@@ -1,0 +1,6 @@
+packages:
+  - packages/** # 各种包管理
+  - internal/* # 构建配置包
+  - docs # 项目文档
+  - plop # 构建脚手架
+  - admin # 管理后台框架

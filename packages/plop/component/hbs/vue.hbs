@@ -1,0 +1,19 @@
+<script setup lang="ts">
+import { computed, ref, watch } from 'vue'
+import { {{camelName}}Emits, {{camelName}}Props } from './{{camelName}}'
+
+defineOptions({
+  name: '{{prefixName}}',
+})
+
+const props = defineProps({{camelName}}Props)
+const emit = defineEmits({{camelName}}Emits)
+</script>
+
+<template>
+  <div class="{{prefixName}}">
+    开始编写你的 {{prefixName}} 组件吧
+  </div>
+</template>
+
+<style lang="less" scoped src="./{{name}}.less"></style>

@@ -8,7 +8,8 @@
       "vite/client",
       "vue/ref-macros",
       "vite-plugin-pages/client",
-      "vite-plugin-vue-layouts/client"
+      "vite-plugin-vue-layouts/client",
+      "unplugin-vue-define-options"
     ],
     "paths": {
       "~/*": [
@@ -23,11 +24,12 @@
     "src/typings/**/*.d.ts",
     "src/**/*",
     "src/**/*.vue",
-    "build/**/*.ts",
+    "packages/**/*.ts",
     "mock/**/*.ts",
     "test/**/*.ts",
-    ".env.config.*",
-    "vite.config.*",
+    ".env.config.ts",
+    "vite.config.ts",
+    "unocss.config.ts",
   ],
   "exclude": [
     "/dist/**",

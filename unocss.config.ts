@@ -22,6 +22,7 @@ export default defineConfig({
       warn: true,
     }),
     presetTypography(),
+    // https://github.com/unocss/unocss/tree/main/packages/preset-web-fonts
     presetWebFonts({
       fonts: {
         sans: 'DM Sans',

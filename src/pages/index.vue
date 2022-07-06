@@ -10,6 +10,10 @@ const go = () => {
     router.push(`/hi/${encodeURIComponent(name)}`)
 }
 
+const admin = () => {
+  router.push('/admin')
+}
+
 const { t } = useI18n()
 </script>
 
@@ -53,6 +57,12 @@ const { t } = useI18n()
         @click="go"
       >
         {{ t('button.go') }}
+      </button>
+      <button
+        btn m-3 text-sm
+        @click="admin"
+      >
+        {{ t('button.admin') }}
       </button>
     </div>
   </div>

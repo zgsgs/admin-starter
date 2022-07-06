@@ -15,6 +15,7 @@ import visualizer from './visualizer'
 import vueI18n from './vue-i18n'
 import vue from './vue'
 import windicss from './windicss'
+import DefineOptions from './define-options'
 
 /**
  * vite插件
@@ -43,6 +44,7 @@ export function setupVitePlugins(
     vueI18n,
     vue,
     windicss,
+    DefineOptions,
   ]
 
   if (configEnv.command === 'build' && viteEnv.VITE_VISUALIZER === 'true')

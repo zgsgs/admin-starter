@@ -9,7 +9,8 @@
       "vue/ref-macros",
       "vitest/importMeta",
       "vite-plugin-pages/client",
-      "vite-plugin-vue-layouts/client"
+      "vite-plugin-vue-layouts/client",
+      "unplugin-vue-define-options"
     ],
     "paths": {
       "~/*": [
@@ -23,9 +24,10 @@
   "include": [
     "src/**/*",
     "src/**/*.vue",
-    "build/**/*.ts",
+    "packages/**/*.ts",
     "mock/**/*.ts",
     "test/**/*.ts",
+    "unocss.config.ts",
     "types/**/*.d.ts",
     ".env.config.*",
     "vite.config.*",

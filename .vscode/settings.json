@@ -1,6 +1,6 @@
 {
   "workbench.iconTheme": "vscode-great-icons",
-  "workbench.colorTheme": "GitHub Dark High Contrast",
+  "workbench.colorTheme": "GitHub Dark Colorblind (Beta)",
   "editor.formatOnSave": false,
   "editor.tabSize": 2,
   "editor.fontLigatures": true,

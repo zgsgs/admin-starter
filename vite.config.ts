@@ -3,7 +3,7 @@ import generateSitemap from 'vite-ssg-sitemap'
 import { createViteProxy, resolvePath, setupVitePlugins, viteDefine } from './build'
 
 export default defineConfig((configEnv) => {
-  const viteEnv = loadEnv(configEnv.mode, process.cwd()) as unknown as ImportMetaEnv
+  const viteEnv = loadEnv(configEnv.mode, process.cwd()) as ImportMetaEnv
   const vitePath = resolvePath('./', import.meta.url)
 
   return {
@@ -38,9 +38,12 @@ export default defineConfig((configEnv) => {
     test: {
       include: ['test/**/*.test.ts'],
       includeSource: ['src/**/*.{js,ts}'],
-      environment: 'jsdom',
+      environment: 'jsdom', // 或 'happy-dom', 'node'
       deps: {
         inline: ['@vue', '@vueuse', 'vue-demi'],
+      },
+      coverage: {
+        reporter: ['text', 'json', 'html'],
       },
     },
   }

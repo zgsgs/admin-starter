@@ -5,12 +5,12 @@ import unocss from '@unocss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import pages from 'vite-plugin-pages'
 import layouts from 'vite-plugin-vue-layouts'
+import windiCSS from 'vite-plugin-windicss'
 import html from './html'
 import unplugin from './unplugin'
 import vueI18n from './vue-i18n'
 import markdown from './markdown'
 import mock from './mock'
-import windicss from './windicss'
 import visualizer from './visualizer'
 import compress from './compress'
 
@@ -33,10 +33,10 @@ export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | Plugin
       extensions: ['vue', 'md'],
     }),
     layouts(),
+    windiCSS(),
     vueI18n,
     markdown,
     mock,
-    windicss,
   ]
 
   if (viteEnv.VITE_VISUALIZER === 'Y')

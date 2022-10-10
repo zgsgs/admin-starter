@@ -1,22 +1,24 @@
 import type { ProxyOptions } from 'vite'
-import { getEnvConfig } from '../../.env.config'
 
 /**
  * 设置网络代理
- * @param viteEnv - vite环境描述
+ * @param isOpenProxy - 是否开启代理
+ * @param envConfig - env环境配置
  */
-export function createViteProxy(viteEnv: ImportMetaEnv) {
-  const isOpenProxy = viteEnv.VITE_HTTP_PROXY === 'true'
+export function createViteProxy(isOpenProxy: boolean, envConfig: ServiceEnvConfig) {
   if (!isOpenProxy)
     return undefined
 
-  const { http } = getEnvConfig(viteEnv)
-
   const proxy: Record<string, string | ProxyOptions> = {
-    [http.proxy]: {
-      target: http.url,
+    [envConfig.urlPattern]: {
+      target: envConfig.url,
       changeOrigin: true,
-      rewrite: path => path.replace(new RegExp(`^${http.proxy}`), ''),
+      rewrite: path => path.replace(new RegExp(`^${envConfig.urlPattern}`), ''),
+    },
+    [envConfig.secondUrlPattern]: {
+      target: envConfig.secondUrl,
+      changeOrigin: true,
+      rewrite: path => path.replace(new RegExp(`^${envConfig.secondUrlPattern}`), ''),
     },
   }
 

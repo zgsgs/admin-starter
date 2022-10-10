@@ -1,38 +1,36 @@
-/** 请求环境配置 */
-type ServiceEnv = Record<
-  EnvType,
-  {
-    /** 请求地址 */
-    url: string;
-    /** 代理地址 */
-    proxy: string;
-  }
->;
+/** 请求服务的环境配置 */
+type ServiceEnv = Record<ServiceEnvType, ServiceEnvConfig>;
 
-/** 环境配置 */
-const serviceEnvConfig: ServiceEnv = {
+/** 不同请求服务的环境配置 */
+const serviceEnv: ServiceEnv = {
   dev: {
     url: 'http://localhost:8080',
-    proxy: '/api'
+    urlPattern: '/url-pattern',
+    secondUrl: 'http://localhost:8081',
+    secondUrlPattern: '/second-url-pattern'
   },
   test: {
     url: 'http://localhost:8080',
-    proxy: '/api'
+    urlPattern: '/url-pattern',
+    secondUrl: 'http://localhost:8081',
+    secondUrlPattern: '/second-url-pattern'
   },
   prod: {
     url: 'http://localhost:8080',
-    proxy: '/api'
+    urlPattern: '/url-pattern',
+    secondUrl: 'http://localhost:8081',
+    secondUrlPattern: '/second-url-pattern'
   }
 };
 
 /**
- * 获取环境配置
- * @param env 环境描述
+ * 获取当前环境模式下的请求服务的配置
+ * @param env 环境
  */
-export function getEnvConfig(env: ImportMetaEnv) {
-  const { VITE_ENV_TYPE = 'dev' } = env;
-  const envConfig = {
-    http: serviceEnvConfig[VITE_ENV_TYPE]
-  };
-  return envConfig;
+export function getServiceEnvConfig(env: ImportMetaEnv) {
+  const { VITE_SERVICE_ENV = 'dev' } = env;
+
+  const config = serviceEnv[VITE_SERVICE_ENV];
+
+  return config;
 }

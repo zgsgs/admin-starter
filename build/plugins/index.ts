@@ -1,54 +1,49 @@
-import type { ConfigEnv, PluginOption } from 'vite'
-import autoImport from './auto-import'
-import components from './components'
+import type { PluginOption } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import unocss from '@unocss/vite'
+import { VitePWA } from 'vite-plugin-pwa'
+import pages from 'vite-plugin-pages'
+import layouts from 'vite-plugin-vue-layouts'
 import html from './html'
-import icons from './icons'
-import inspect from './inspect'
-import vueJsx from './jsx'
-import layouts from './layouts'
-import markdown from './markdown'
-// import mock from './mock'
-import pages from './pages'
-import pwa from './pwa'
-import unocss from './unocss'
-import visualizer from './visualizer'
+import unplugin from './unplugin'
 import vueI18n from './vue-i18n'
-import vue from './vue'
+import markdown from './markdown'
+import mock from './mock'
 import windicss from './windicss'
-import DefineOptions from './define-options'
+import visualizer from './visualizer'
+import compress from './compress'
 
 /**
  * vite插件
- * @param configEnv - 环境
- * @param srcPath - src路径
  * @param viteEnv - 环境变量配置
  */
-export function setupVitePlugins(
-  configEnv: ConfigEnv,
-  srcPath: string,
-  viteEnv: ImportMetaEnv,
-): (PluginOption | PluginOption[])[] {
+export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | PluginOption[])[] {
   const plugins = [
-    autoImport,
-    components,
-    html(configEnv),
-    icons(srcPath),
-    inspect,
-    vueJsx,
-    layouts,
-    markdown,
-    // mock,
-    pages,
-    pwa,
-    unocss,
+    vue({
+      include: [/\.vue$/, /\.md$/],
+      reactivityTransform: true,
+    }),
+    vueJsx(),
+    VitePWA(),
+    html(viteEnv),
+    ...unplugin(viteEnv),
+    unocss(),
+    pages({
+      extensions: ['vue', 'md'],
+    }),
+    layouts(),
     vueI18n,
-    vue,
+    markdown,
+    mock,
     windicss,
-    DefineOptions,
   ]
 
-  if (configEnv.command === 'build' && viteEnv.VITE_VISUALIZER === 'true')
-    plugins.push(visualizer)
+  if (viteEnv.VITE_VISUALIZER === 'Y')
+    plugins.push(visualizer as PluginOption)
+
+  if (viteEnv.VITE_COMPRESS === 'Y')
+    plugins.push(compress(viteEnv))
 
   return plugins
 }

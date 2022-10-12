@@ -18,3 +18,14 @@ export function getSrcPath(srcName = 'src') {
 
   return `${rootPath}/${srcName}`
 }
+
+/**
+ * 获取项目test路径
+ * @param testName - test目录名称(默认: "test")
+ * @descrition 末尾不带斜杠
+ */
+export function getTestPath(testName = 'test') {
+  const rootPath = getRootPath()
+
+  return `${rootPath}/${testName}`
+}

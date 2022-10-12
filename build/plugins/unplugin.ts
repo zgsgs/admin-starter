@@ -49,6 +49,7 @@ export default function unplugin(viteEnv: ImportMetaEnv) {
         'vue/macros',
         '@vueuse/head',
         '@vueuse/core',
+        'vitest',
       ],
       dts: 'types/auto-imports.d.ts',
     }),

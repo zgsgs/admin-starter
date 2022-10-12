@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv } from 'vite'
 import generateSitemap from 'vite-ssg-sitemap'
-import { createViteProxy, getRootPath, getSrcPath, setupVitePlugins, viteDefine } from './build'
+import { createViteProxy, getRootPath, getSrcPath, getTestPath, setupVitePlugins, viteDefine } from './build'
 import { getServiceEnvConfig } from './.env.config'
 
 export default defineConfig((configEnv) => {
@@ -46,9 +46,9 @@ export default defineConfig((configEnv) => {
 
     // https://github.com/vitest-dev/vitest
     test: {
-      include: ['test/**/*.test.ts'],
-      includeSource: ['src/**/*.{js,ts}'],
-      environment: 'jsdom', // 或 'happy-dom', 'node'
+      environment: 'happy-dom', // 或 'js-dom', 'node'
+      // 运行在每个测试文件前面
+      setupFiles: [getTestPath('./test/setupFiles/index.ts')],
       deps: {
         inline: ['@vue', '@vueuse', 'vue-demi'],
       },

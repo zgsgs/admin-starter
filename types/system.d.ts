@@ -21,17 +21,11 @@ declare namespace EnumType {
 
 /** 请求的相关类型 */
 declare namespace Service {
-  /** 请求环境类型
-   * - test:测试环境
-   * - prod:正式环境
-   */
-  type HttpEnv = 'test' | 'prod'
-
   /**
    * 请求的错误类型：
    * - axios: axios错误：网络错误, 请求超时, 默认的兜底错误
-   * - http: 请求成功，响应的状态码非200的错误
-   * - backend: 请求成功，响应的状态码为200，由后端定义的业务错误
+   * - http: 请求成功，响应的http状态码非200的错误
+   * - backend: 请求成功，响应的http状态码为200，由后端定义的业务错误
    */
   type RequestErrorType = 'axios' | 'http' | 'backend'
 
@@ -76,6 +70,20 @@ declare namespace Service {
   /** 自定义的请求结果 */
   type RequestResult<T = any> = SuccessResult<T> | FailedResult
 
+  /** 多个请求数据结果 */
+  type MultiRequestResult<T extends any[]> = T extends [infer First, ...infer Rest]
+    ? [First] extends [any]
+        ? Rest extends any[]
+          ? [Service.RequestResult<First>, ...MultiRequestResult<Rest>]
+          : [Service.RequestResult<First>]
+        : Rest extends any[]
+          ? MultiRequestResult<Rest>
+          : []
+    : []
+
+  /** 请求结果的适配器函数 */
+  type ServiceAdapter<T = any, A extends any[] = any> = (...args: A) => T
+
   /** mock示例接口类型：后端接口返回的数据的类型 */
   interface MockServiceResult<T = any> {
     /** 状态码 */
@@ -85,6 +93,14 @@ declare namespace Service {
     /** 接口消息 */
     message: string
   }
+
+  /** mock的响应option */
+  interface MockOption {
+    url: Record<string, any>
+    body: Record<string, any>
+    query: Record<string, any>
+    headers: Record<string, any>
+  }
 }
 
 /** 主题相关类型 */
@@ -93,6 +109,8 @@ declare namespace Theme {
   interface Setting {
     /** 暗黑模式 */
     darkMode: boolean
+    /** 是否自动跟随系统主题 */
+    followSystemTheme: boolean
     /** 布局样式 */
     layout: Layout
     /** 主题颜色 */
@@ -129,7 +147,6 @@ declare namespace Theme {
     /** 布局模式列表 */
     modeList: LayoutModeList[]
   }
-  /* 布局模式列表 */
   interface LayoutModeList {
     value: EnumType.ThemeLayoutMode
     label: import('@/enum').EnumThemeLayoutMode
@@ -149,6 +166,8 @@ declare namespace Theme {
 
   /** 头部样式 */
   interface Header {
+    /** 头部反转色 */
+    inverted: boolean
     /** 头部高度 */
     height: number
     /** 面包屑样式 */
@@ -162,7 +181,7 @@ declare namespace Theme {
     showIcon: boolean
   }
 
-  /** 多页签样式 */
+  /** 标多页签样式 */
   export interface Tab {
     /** 多页签可见 */
     visible: boolean
@@ -184,6 +203,8 @@ declare namespace Theme {
 
   /** 侧边栏样式 */
   interface Sider {
+    /** 侧边栏反转色 */
+    inverted: boolean
     /** 侧边栏宽度 */
     width: number
     /** 侧边栏折叠时的宽度 */
@@ -199,7 +220,7 @@ declare namespace Theme {
   /** 菜单样式 */
   interface Menu {
     /** 水平模式的菜单的位置 */
-    horizontalPosition: HorizontalMenuPosition
+    horizontalPosition: EnumType.ThemeHorizontalMenuPosition
     /** 水平模式的菜单的位置列表 */
     horizontalPositionList: HorizontalMenuPositionList[]
   }
@@ -244,7 +265,7 @@ interface GlobalHeaderProps {
 }
 
 /** 菜单项配置 */
-interface GlobalMenuOption {
+type GlobalMenuOption = import('naive-ui').MenuOption & {
   key: string
   label: string
   routeName: string
@@ -264,10 +285,47 @@ type GlobalBreadcrumb = import('naive-ui').DropdownOption & {
 }
 
 /** 多页签Tab的路由 */
-interface GlobalTabRoute extends Pick<import('vue-router').RouteLocationNormalizedLoaded, 'name' | 'path' | 'meta'> {
+interface GlobalTabRoute
+  extends Pick<import('vue-router').RouteLocationNormalizedLoaded, 'name' | 'fullPath' | 'meta'> {
   /** 滚动的位置 */
   scrollPosition: {
     left: number
     top: number
+  }
+}
+
+/** 系统消息 */
+declare namespace Message {
+  interface Tab {
+    /** tab的key */
+    key: number
+    /** tab名称 */
+    name: string
+    /** badge类型 */
+    badgeProps?: import('naive-ui').BadgeProps
+    /** 消息数据 */
+    list: List[]
+  }
+
+  interface List {
+    /** 数据唯一值 */
+    id: number
+    /** 头像 */
+    avatar?: string
+    /** 消息icon */
+    icon?: string
+    svgIcon?: string
+    /** 消息标题 */
+    title: string
+    /** 消息发送时间 */
+    date?: string
+    /** 消息是否已读 */
+    isRead?: boolean
+    /** 消息描述 */
+    description?: string
+    /** 标签名称 */
+    tagTitle?: string
+    /** 标签props */
+    tagProps?: import('naive-ui').TagProps
   }
 }

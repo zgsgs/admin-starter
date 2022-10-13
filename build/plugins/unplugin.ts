@@ -50,6 +50,9 @@ export default function unplugin(viteEnv: ImportMetaEnv) {
         '@vueuse/head',
         '@vueuse/core',
         'vitest',
+        {
+          '@vue/test-utils': ['mount'],
+        },
       ],
       dts: 'types/auto-imports.d.ts',
     }),

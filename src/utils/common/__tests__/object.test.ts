@@ -1,7 +1,7 @@
-import { objectAssign } from '../object'
+import { objectAssign } from '@/utils'
 
 describe('object.ts', () => {
-  it('', async() => {
+  it('sets object data', async() => {
     const target = {}
     const source = { a: 123, b: 3253 }
     objectAssign(target, source)

@@ -61,7 +61,7 @@ importers:
       vite-plugin-windicss: ^1.8.8
       vite-ssg: ^0.19.2
       vite-ssg-sitemap: ^0.2.7
-      vitest: ^0.9.4
+      vitest: ^0.24.1
       vue: ^3.2.40
       vue-demi: ^0.12.5
       vue-i18n: ^9.2.2
@@ -130,7 +130,7 @@ importers:
       vite-plugin-windicss: 1.8.8_vite@2.9.15
       vite-ssg: 0.19.2_uji7tkznmnrlkn5xdwwli6cyva
       vite-ssg-sitemap: 0.2.7
-      vitest: 0.9.4_happy-dom@7.4.0
+      vitest: 0.24.1_happy-dom@7.4.0
       vue-tsc: 1.0.7_typescript@4.8.4
 
   docs:
@@ -9281,6 +9281,12 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /strip-literal/0.4.2:
+    resolution: {integrity: sha512-pv48ybn4iE1O9RLgCAN0iU4Xv7RlBTiit6DKmMiErbs9x1wH6vXBs45tWc0H5wUIF6TLTrKweqkmYF/iraQKNw==}
+    dependencies:
+      acorn: 8.8.0
+    dev: true
+
   /supports-color/2.0.0:
     resolution: {integrity: sha512-KKNVtd6pCYgPIKU4cp2733HWYCpplQhddZLBUryaAHou723x+FRzQ5Df824Fj+IyyuiQTRoub4SnIFfIcrp70g==}
     engines: {node: '>=0.8.0'}
@@ -9436,13 +9442,17 @@ packages:
       readable-stream: 3.6.0
     dev: true
 
-  /tinypool/0.1.3:
-    resolution: {integrity: sha512-2IfcQh7CP46XGWGGbdyO4pjcKqsmVqFAPcXfPxcPXmOWt9cYkTP9HcDmGgsfijYoAEc4z9qcpM/BaBz46Y9/CQ==}
+  /tinybench/2.3.0:
+    resolution: {integrity: sha512-zs1gMVBwyyG2QbVchYIbnabRhMOCGvrwZz/q+SV+LIMa9q5YDQZi2kkI6ZRqV2Bz7ba1uvrc7ieUoE4KWnGeKg==}
+    dev: true
+
+  /tinypool/0.3.0:
+    resolution: {integrity: sha512-NX5KeqHOBZU6Bc0xj9Vr5Szbb1j8tUHIeD18s41aDJaPeC5QTdEhK0SpdpUrZlj2nv5cctNcSjaKNanXlfcVEQ==}
     engines: {node: '>=14.0.0'}
     dev: true
 
-  /tinyspy/0.3.3:
-    resolution: {integrity: sha512-gRiUR8fuhUf0W9lzojPf1N1euJYA30ISebSfgca8z76FOvXtVXqd5ojEIaKLWbDQhAaC3ibxZIjqbyi4ybjcTw==}
+  /tinyspy/1.0.2:
+    resolution: {integrity: sha512-bSGlgwLBYf7PnUsQ6WOc6SJ3pGOcd+d8AA6EUnLDDM0kWEstC1JIlSZA3UNliDXhd9ABoS7hiRBDCu+XP/sf1Q==}
     engines: {node: '>=14.0.0'}
     dev: true
 
@@ -10379,19 +10389,22 @@ packages:
       - terser
     dev: true
 
-  /vitest/0.9.4_happy-dom@7.4.0:
-    resolution: {integrity: sha512-Em+EJb3keCr3GjyqnkxHuY7zMerEgLsN+m2nqsUcCzO7C4+Y0E7O7LXSNaODh3Gc/An3dqnoaAe/uLBrAJXUdQ==}
+  /vitest/0.24.1_happy-dom@7.4.0:
+    resolution: {integrity: sha512-NKkK1xnDIOOr42pKBfGQQl6b6IWdFVBpG6ZS1T+nUlJuqcOiZ7lxjVwHy9wrtTYpJ0BWww9y6bSGYXubD29Nag==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
+      '@edge-runtime/vm': '*'
+      '@vitest/browser': '*'
       '@vitest/ui': '*'
-      c8: '*'
       happy-dom: '*'
       jsdom: '*'
     peerDependenciesMeta:
-      '@vitest/ui':
+      '@edge-runtime/vm':
         optional: true
-      c8:
+      '@vitest/browser':
+        optional: true
+      '@vitest/ui':
         optional: true
       happy-dom:
         optional: true
@@ -10400,16 +10413,22 @@ packages:
     dependencies:
       '@types/chai': 4.3.3
       '@types/chai-subset': 1.3.3
+      '@types/node': 18.8.5
       chai: 4.3.6
+      debug: 4.3.4
       happy-dom: 7.4.0
       local-pkg: 0.4.2
-      tinypool: 0.1.3
-      tinyspy: 0.3.3
-      vite: 2.9.15
+      strip-literal: 0.4.2
+      tinybench: 2.3.0
+      tinypool: 0.3.0
+      tinyspy: 1.0.2
+      vite: 3.1.6
     transitivePeerDependencies:
       - less
       - sass
       - stylus
+      - supports-color
+      - terser
     dev: true
 
   /vscode-oniguruma/1.6.2:

@@ -1,4 +1,4 @@
-import { addColorAlpha, getAllColorPalette, getColorPalette, isWhiteColor, mixColor } from '../color'
+import { addColorAlpha, getAllColorPalette, getColorPalette, isWhiteColor, mixColor } from '@/utils'
 
 describe('path.ts', () => {
   const color = '#007fff'

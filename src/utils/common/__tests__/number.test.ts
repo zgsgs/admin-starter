@@ -1,10 +1,10 @@
-import { getHanByNumber, transformToTimeCountDown } from '../number'
+import { getHanByNumber, transformToTimeCountDown } from '@/utils'
 
 describe('number.ts', () => {
-  it('', async() => {
+  it('get chinese number', async() => {
     expect(getHanByNumber(9)).toMatchInlineSnapshot('"九"')
   })
-  it('', async() => {
+  it('convert the total seconds to', async() => {
     expect(transformToTimeCountDown(60)).toMatchInlineSnapshot('"01: 00"')
   })
 })

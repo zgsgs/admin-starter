@@ -46,6 +46,7 @@
   "i18n-ally.sortKeys": true,
   "cSpell.words": [
     "antfu",
+    "colord",
     "composables",
     "demi",
     "dicom",
@@ -54,6 +55,7 @@
     "monospace",
     "pinia",
     "pnpm",
+    "soybeanjs",
     "unocss",
     "unplugin",
     "Vite",

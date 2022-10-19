@@ -6,41 +6,21 @@
   "author": "Jason",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zgsgs/imitation-admin.git"
+    "url": "git+https://github.com/zgsgs/admin-starter.git"
   },
   "scripts": {
-    "build": "vite-ssg build",
-    "dev": "vite --open",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.json --max-warnings 0",
-    "lint:fix": "lint-staged",
-    "preview": "vite preview",
-    "preview-https": "serve dist",
-    "test": "vitest -u",
-    "test:commitlint": "vitest --run",
-    "test:e2e": "cypress open",
-    "test:unit": "vitest",
-    "type:check": "vue-tsc --noEmit",
     "prepare": "husky install",
-    "plop:cmp": "pnpm -C packages/plop component",
-    "plop:api": "pnpm -C packages/plop api"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.json --max-warnings 0",
+    "lint/fix": "lint-staged",
+    "type/check": "pnpm -C packages/admin type/check",
+    "build": "pnpm -C packages/admin build",
+    "dev/admin": "pnpm -C packages/admin dev",
+    "test": "pnpm -C packages/admin test",
+    "test/commitlint": "pnpm -C packages/admin test/commitlint",
+    "plop/cmp": "pnpm -C packages/plop component",
+    "plop/api": "pnpm -C packages/plop api"
   },
   "dependencies": {
-    "@soybeanjs/vue-admin-layout": "^1.1.1",
-    "@soybeanjs/vue-admin-tab": "^1.0.5",
-    "@vueuse/core": "^8.9.4",
-    "@vueuse/head": "^0.7.13",
-    "clipboard": "^2.0.11",
-    "colord": "^2.9.3",
-    "css-render": "^0.15.11",
-    "lodash-es": "^4.17.21",
-    "nprogress": "^0.2.0",
-    "pinia": "^2.0.23",
-    "prism-theme-vars": "^0.2.4",
-    "ua-parser-js": "^1.0.32",
-    "vue": "^3.2.40",
-    "vue-demi": "^0.12.5",
-    "vue-i18n": "^9.2.2",
-    "vue-router": "^4.1.5"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.20.7",
@@ -103,7 +83,7 @@
     "*.{vue,js,jsx,ts,tsx,json}": "eslint --fix"
   },
   "bugs": {
-    "url": "https://github.com/zgsgs/imitation-admin/issues"
+    "url": "https://github.com/zgsgs/admin-starter/issues"
   },
-  "homepage": "https://github.com/zgsgs/imitation-admin#readme"
+  "homepage": "https://github.com/zgsgs/admin-starter#readme"
 }

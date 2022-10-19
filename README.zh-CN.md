@@ -4,7 +4,7 @@
 
 <p align='center'>
 快速地<sup><em>Vitesse</em></sup> 创建 Web 应用
-<br> 
+<br>
 </p>
 
 <br>
@@ -45,7 +45,7 @@
 
 - 🔥 使用 [新的 `<script setup>` 语法](https://github.com/vuejs/rfcs/pull/227)
 
-- 🤙🏻 默认开启 [响应性语法糖](https://vuejs.org/guide/extras/reactivity-transform.html) 
+- 🤙🏻 默认开启 [响应性语法糖](https://vuejs.org/guide/extras/reactivity-transform.html)
 
 - 📥 [API 自动加载](https://github.com/antfu/unplugin-auto-import) - 直接使用 Composition API 无需引入
 

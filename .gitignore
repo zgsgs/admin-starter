@@ -105,3 +105,6 @@ dist
 .tern-port
 auto-imports.d.ts
 components.d.ts
+
+# Turborepo build output
+.turbo

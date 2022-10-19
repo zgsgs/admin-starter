@@ -10,17 +10,18 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.json --max-warnings 0",
-    "lint/fix": "lint-staged",
-    "type/check": "pnpm -C packages/admin type/check",
-    "build": "pnpm -C packages/admin build",
-    "dev/admin": "pnpm -C packages/admin dev",
-    "test": "pnpm -C packages/admin test",
-    "test/commitlint": "pnpm -C packages/admin test/commitlint",
-    "plop/cmp": "pnpm -C packages/plop component",
-    "plop/api": "pnpm -C packages/plop api"
-  },
-  "dependencies": {
+    "lint": "turbo run lint",
+    "lint:fix": "lint-staged",
+    "type:check": "turbo run type:check",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "preview": "turbo run preview",
+    "test": "turbo run test",
+    "test:e2e": "turbo run test:e2e",
+    "test:unit": "turbo run test:unit",
+    "test:commitlint": "turbo run test:commitlint",
+    "plop:cmp": "turbo run component",
+    "plop:api": "turbo run api"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.20.7",
@@ -57,6 +58,7 @@
     "plop": "^3.1.1",
     "pnpm": "^6.34.0",
     "rollup-plugin-visualizer": "^5.8.2",
+    "turbo": "^1.5.6",
     "typescript": "^4.8.4",
     "unocss": "^0.31.17",
     "unplugin-auto-import": "^0.7.2",

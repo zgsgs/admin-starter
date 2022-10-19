@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
   "scripts": {
     "component": "plop component",
     "api": "plop api"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

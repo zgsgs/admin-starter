@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { toggleDark } from '@/composables'
+import { toggleDark } from '@/hooks'
 
 defineOptions({ name: 'Footer' })
 

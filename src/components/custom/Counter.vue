@@ -10,14 +10,14 @@ const { count, inc, dec } = useCounter(props.initial)
 
 <template>
   <div>
-    <button class="inc" @click="inc()">
-      +
+    <button class="dec" btn m-3 text-sm @click="dec()">
+      -
     </button>
-    <span>
+    <span border="~ rounded gray-200 dark:gray-700" w="100px" display="inline-block">
       {{ count }}
     </span>
-    <button class="dec" @click="dec()">
-      -
+    <button class="inc" btn m-3 @click="inc()">
+      +
     </button>
   </div>
 </template>

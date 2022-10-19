@@ -1,7 +1,6 @@
 import { defineConfig, loadEnv } from 'vite'
 import generateSitemap from 'vite-ssg-sitemap'
-import { createViteProxy, getRootPath, getSrcPath, getTestPath, setupVitePlugins, viteDefine } from './build'
-import { getServiceEnvConfig } from './.env.config'
+import { createViteProxy, getRootPath, getServiceEnvConfig, getSrcPath, getTestPath, setupVitePlugins, viteDefine } from './build'
 
 export default defineConfig((configEnv) => {
   const viteEnv = loadEnv(configEnv.mode, process.cwd()) as ImportMetaEnv

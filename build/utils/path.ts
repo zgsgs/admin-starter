@@ -1,4 +1,5 @@
 import path from 'path'
+import { serviceEnv } from '../../src/config/service'
 
 /**
  * 获取项目根路径
@@ -28,4 +29,16 @@ export function getTestPath(testName = 'test') {
   const rootPath = getRootPath()
 
   return `${rootPath}/${testName}`
+}
+
+/**
+ * 获取当前环境模式下的请求服务的配置
+ * @param env 环境
+ */
+export function getServiceEnvConfig(env: ImportMetaEnv) {
+  const { VITE_SERVICE_ENV = 'dev' } = env
+
+  const config = serviceEnv[VITE_SERVICE_ENV]
+
+  return config
 }

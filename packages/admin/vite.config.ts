@@ -1,5 +1,4 @@
 import { defineConfig, loadEnv } from 'vite'
-import generateSitemap from 'vite-ssg-sitemap'
 import { createViteProxy, getRootPath, getServiceEnvConfig, getSrcPath, getTestPath, setupVitePlugins, viteDefine } from './build'
 
 export default defineConfig((configEnv) => {
@@ -35,14 +34,6 @@ export default defineConfig((configEnv) => {
         ignoreTryCatch: false,
       },
     },
-
-    // https://github.com/antfu/vite-ssg
-    ssgOptions: {
-      script: 'async',
-      formatting: 'minify',
-      onFinished() { generateSitemap() },
-    },
-
     // https://github.com/vitest-dev/vitest
     test: {
       environment: 'happy-dom', // 或 'js-dom', 'node'

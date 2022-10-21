@@ -18,17 +18,21 @@
     "test:e2e": "cypress open",
     "test:unit": "vitest",
     "type:check": "vue-tsc --noEmit",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.json --max-warnings 0"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.json --max-warnings 0 --fix"
   },
   "dependencies": {
     "@soybeanjs/vue-admin-layout": "^1.1.1",
     "@soybeanjs/vue-admin-tab": "^1.0.5",
     "@vueuse/core": "^8.9.4",
     "@vueuse/head": "^0.7.13",
+    "axios": "0.27.2",
     "clipboard": "^2.0.11",
     "colord": "^2.9.3",
     "css-render": "^0.15.11",
+    "dayjs": "^1.11.6",
+    "echarts": "^5.4.0",
     "lodash-es": "^4.17.21",
+    "naive-ui": "^2.33.5",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.23",
     "prism-theme-vars": "^0.2.4",
@@ -37,9 +41,6 @@
     "vue-demi": "^0.12.5",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.5"
-  },
-  "devDependencies": {
-
   },
   "bugs": {
     "url": "https://github.com/zgsgs/admin-starter/issues"

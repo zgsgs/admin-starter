@@ -8,8 +8,6 @@
       "vue/ref-macros",
       "vitest/importMeta",
       "unplugin-icons/types/vue",
-      "vite-plugin-pages/client",
-      "vite-plugin-vue-layouts/client",
       "unplugin-vue-macros/macros-global",
     ],
     "paths": {

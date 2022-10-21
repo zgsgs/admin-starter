@@ -1,22 +1,30 @@
-import { ViteSSG } from 'vite-ssg'
-import { setupLayouts } from 'virtual:generated-layouts'
+import { createApp } from 'vue'
 import App from './App.vue'
-import generatedRoutes from '~pages'
+import { setupDirectives } from './directives'
+import { setupRouter } from './router'
+import { setupAssets } from './plugins'
+import { setupStore } from './store'
+import { setupI18n } from './locales'
 
-import '@unocss/reset/tailwind.css'
-import './styles/main.css'
-import 'uno.css'
+async function setupApp() {
+  // import assets: js、css
+  setupAssets()
 
-const routes = setupLayouts(generatedRoutes)
+  const app = createApp(App)
 
-// https://github.com/antfu/vite-ssg
-export const createApp = ViteSSG(
-  App,
-  { routes, base: import.meta.env.VITE_BASE_URL },
-  (ctx) => {
-    // console.log('generatedRoutes', generatedRoutes)
+  // store plugin: pinia
+  setupStore(app)
 
-    // install all modules under `modules/`
-    Object.values(import.meta.globEager('./modules/*.ts')).forEach(i => i.install?.(ctx))
-  },
-)
+  // vue custom directives
+  setupDirectives(app)
+
+  // vue router
+  await setupRouter(app)
+
+  setupI18n(app)
+
+  // mount app
+  app.mount('#app')
+}
+
+setupApp()

@@ -1,0 +1,26 @@
+<script setup lang="ts">
+import { LayoutCheckbox } from './components'
+import { useThemeStore } from '@/store'
+
+defineOptions({ name: 'LayoutMode' })
+
+const theme = useThemeStore()
+</script>
+
+<template>
+  <n-divider title-placement="center">
+    布局模式
+  </n-divider>
+  <n-space justify="space-between">
+    <layout-checkbox
+      v-for="item in theme.layout.modeList"
+      :key="item.value"
+      :mode="item.value"
+      :label="item.label"
+      :checked="item.value === theme.layout.mode"
+      @click="theme.setLayoutMode(item.value)"
+    />
+  </n-space>
+</template>
+
+<style scoped></style>

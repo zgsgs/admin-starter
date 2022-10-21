@@ -1,7 +1,6 @@
 import axios from 'axios'
 import type { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios'
 import { handleRefreshToken } from './helpers'
-import { REFRESH_TOKEN_CODE } from '~/build'
 import {
   getToken,
   handleAxiosError,
@@ -10,6 +9,7 @@ import {
   handleServiceResult,
   transformRequestData,
 } from '@/utils'
+import { REFRESH_TOKEN_CODE } from '~/build/config'
 
 /**
  * 封装axios请求类
@@ -42,7 +42,7 @@ export default class CustomAxiosInstance {
   /** 设置请求拦截器 */
   setInterceptor() {
     this.instance.interceptors.request.use(
-      async(config) => {
+      async (config) => {
         const handleConfig = { ...config }
         if (handleConfig.headers) {
           // 数据转换
@@ -59,7 +59,7 @@ export default class CustomAxiosInstance {
       },
     )
     this.instance.interceptors.response.use(
-      async(response) => {
+      async (response) => {
         const { status } = response
         if (status === 200 || status < 300 || status === 304) {
           const backend = response.data

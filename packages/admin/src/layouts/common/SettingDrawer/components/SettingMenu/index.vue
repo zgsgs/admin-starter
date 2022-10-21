@@ -1,12 +1,12 @@
 <script lang="ts" setup>
+defineProps<Props>()
+
 defineOptions({ name: 'SettingMenu' })
 
 interface Props {
   /** 文本 */
   label: string
 }
-
-defineProps<Props>()
 </script>
 
 <template>

@@ -15,8 +15,8 @@ const showTitle = computed(() => !app.siderCollapse && theme.layout.mode !== 've
 
 <template>
   <dark-mode-container class="flex-col-stretch h-full" :inverted="theme.sider.inverted">
-    <global-logo v-if="!isHorizontalMix" :show-title="showTitle" :style="{ height: theme.header.height + 'px' }" />
-    <vertical-menu />
+    <GlobalLogo v-if="!isHorizontalMix" :show-title="showTitle" :style="{ height: `${theme.header.height}px` }" />
+    <VerticalMenu />
   </dark-mode-container>
 </template>
 

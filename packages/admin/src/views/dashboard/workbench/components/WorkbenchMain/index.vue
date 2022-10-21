@@ -105,7 +105,7 @@ const shortcuts: Shortcuts[] = [
           </template>
           <n-grid :item-responsive="true" responsive="screen" cols="m:2 l:3" :x-gap="8" :y-gap="8">
             <n-grid-item v-for="item in technology" :key="item.id">
-              <technology-card v-bind="item" />
+              <TechnologyCard v-bind="item" />
             </n-grid-item>
           </n-grid>
         </n-card>
@@ -129,7 +129,7 @@ const shortcuts: Shortcuts[] = [
         <n-card title="快捷操作" :bordered="false" size="small" class="shadow-sm rounded-16px">
           <n-grid :item-responsive="true" responsive="screen" cols="m:2 l:3" :x-gap="8" :y-gap="8">
             <n-grid-item v-for="item in shortcuts" :key="item.id">
-              <shortcuts-card v-bind="item" />
+              <ShortcutsCard v-bind="item" />
             </n-grid-item>
           </n-grid>
         </n-card>

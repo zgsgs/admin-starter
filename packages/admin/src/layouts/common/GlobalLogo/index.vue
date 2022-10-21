@@ -2,14 +2,14 @@
 import { routePath } from '@/router'
 import { setLocale, t } from '@/locales'
 
+defineProps<Props>()
+
 defineOptions({ name: 'GlobalLogo' })
 
 interface Props {
   /** 显示名字 */
   showTitle: boolean
 }
-
-defineProps<Props>()
 
 const routeHomePath = routePath('root')
 

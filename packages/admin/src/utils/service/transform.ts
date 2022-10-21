@@ -26,7 +26,7 @@ async function handleFormData(data: Record<string, any>) {
   const formData = new FormData()
   const entries = Object.entries(data)
 
-  entries.forEach(async([key, value]) => {
+  entries.forEach(async ([key, value]) => {
     const isFileType = isFile(value) || (isArray(value) && value.length && isFile(value[0]))
 
     if (isFileType)

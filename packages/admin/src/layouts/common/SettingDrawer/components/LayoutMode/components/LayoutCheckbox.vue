@@ -3,6 +3,8 @@ import { computed } from 'vue'
 import type { PopoverPlacement } from 'naive-ui'
 import type { EnumThemeLayoutMode } from '@/enum'
 
+const props = defineProps<Props>()
+
 defineOptions({ name: 'LayoutCheckbox' })
 
 interface Props {
@@ -13,8 +15,6 @@ interface Props {
   /** 选中状态 */
   checked: boolean
 }
-
-const props = defineProps<Props>()
 
 type LayoutConfig = Record<
   EnumType.ThemeLayoutMode,

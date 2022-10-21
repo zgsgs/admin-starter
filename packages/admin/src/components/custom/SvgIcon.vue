@@ -2,6 +2,8 @@
 import { computed, useAttrs } from 'vue'
 import { Icon } from '@iconify/vue'
 
+const props = defineProps<Props>()
+
 defineOptions({ name: 'SvgIcon' })
 
 /**
@@ -15,8 +17,6 @@ interface Props {
   /** 本地svg的文件名 */
   localIcon?: string
 }
-
-const props = defineProps<Props>()
 
 const attrs = useAttrs()
 

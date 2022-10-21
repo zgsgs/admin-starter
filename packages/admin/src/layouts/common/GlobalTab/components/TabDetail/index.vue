@@ -4,13 +4,13 @@ import { ButtonTab, ChromeTab } from '@soybeanjs/vue-admin-tab'
 import { ContextMenu } from './components'
 import { useTabStore, useThemeStore } from '@/store'
 
+const emit = defineEmits<Emits>()
+
 defineOptions({ name: 'TabDetail' })
 
 interface Emits {
   (e: 'scroll', clientX: number): void
 }
-
-const emit = defineEmits<Emits>()
 
 const theme = useThemeStore()
 const tab = useTabStore()
@@ -108,7 +108,7 @@ watch(
       {{ item.meta.title }}
     </component>
   </div>
-  <context-menu
+  <ContextMenu
     :visible="dropdown.visible"
     :current-path="dropdown.currentPath"
     :x="dropdown.x"

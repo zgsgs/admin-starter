@@ -1,4 +1,12 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
+const props = withDefaults(defineProps<Props>(), {
+  value: true,
+})
+
+const emit = defineEmits<Emits>()
+
 defineOptions({ name: 'LoginAgreement' })
 
 interface Props {
@@ -6,19 +14,13 @@ interface Props {
   value?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  value: true,
-})
-
 interface Emits {
   (e: 'update:value', value: boolean): void
   /** 点击协议 */
-  (e: 'click-protocol'): void
+  (e: 'clickProtocol'): void
   /** 点击隐私政策 */
-  (e: 'click-policy'): void
+  (e: 'clickPolicy'): void
 }
-
-const emit = defineEmits<Emits>()
 
 const checked = computed({
   get() {
@@ -30,10 +32,10 @@ const checked = computed({
 })
 
 function handleClickProtocol() {
-  emit('click-protocol')
+  emit('clickProtocol')
 }
 function handleClickPolicy() {
-  emit('click-policy')
+  emit('clickPolicy')
 }
 </script>
 

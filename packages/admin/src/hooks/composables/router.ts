@@ -70,7 +70,6 @@ export function useRouterPush(inSetup = true) {
     const { query } = route.value
     if (query?.redirect)
       routerPush(query.redirect as string)
-
     else
       toHome()
   }

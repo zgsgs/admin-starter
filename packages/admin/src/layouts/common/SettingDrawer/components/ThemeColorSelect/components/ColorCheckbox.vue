@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 
+const props = withDefaults(defineProps<Props>(), {
+  iconClass: 'text-14px',
+})
+
 defineOptions({ name: 'ColorCheckbox' })
 
 interface Props {
@@ -11,10 +15,6 @@ interface Props {
   /** 图标的class */
   iconClass?: string
 }
-
-const props = withDefaults(defineProps<Props>(), {
-  iconClass: 'text-14px',
-})
 
 const whiteColors = ['#ffffff', '#fff', 'rgb(255,255,255)']
 const isWhite = computed(() => whiteColors.includes(props.color))

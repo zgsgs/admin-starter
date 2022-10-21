@@ -23,7 +23,7 @@ const { bool: addMainOverflowHidden, setBool: setAddMainOverflowHidden } = useBo
 </script>
 
 <template>
-  <admin-layout
+  <AdminLayout
     :mode="mode"
     :is-mobile="isMobile"
     :fixed-header-and-tab="theme.fixedHeaderAndTab"
@@ -39,21 +39,21 @@ const { bool: addMainOverflowHidden, setBool: setAddMainOverflowHidden } = useBo
     @update:sider-collapse="app.setSiderCollapse"
   >
     <template #header>
-      <global-header v-bind="headerProps" />
+      <GlobalHeader v-bind="headerProps" />
     </template>
     <template #tab>
-      <global-tab />
+      <GlobalTab />
     </template>
     <template #sider>
-      <global-sider />
+      <GlobalSider />
     </template>
-    <global-content @hide-main-overflow="setAddMainOverflowHidden" />
+    <GlobalContent @hide-main-overflow="setAddMainOverflowHidden" />
     <template #footer>
-      <global-footer />
+      <GlobalFooter />
     </template>
-  </admin-layout>
-  <global-back-top />
-  <setting-drawer />
+  </AdminLayout>
+  <GlobalBackTop />
+  <SettingDrawer />
 </template>
 
 <style scoped></style>

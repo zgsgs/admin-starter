@@ -1,5 +1,3 @@
-export * from './dark'
-export * from './style'
 export * from './system'
 export * from './router'
 export * from './layout'

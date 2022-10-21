@@ -1,49 +1,97 @@
 {
   "name": "@admin-starter/admin",
+  "version": "0.0.1",
   "private": true,
   "packageManager": "pnpm@7.5.0",
-  "license": "ISC",
-  "author": "Jason",
+  "description": "A fresh and elegant admin template, based on Vue3、Vite3、TypeScript、NaiveUI and UnoCSS. 一个基于Vue3、Vite3、TypeScript、NaiveUI and UnoCSS的清新优雅的中后台模版。",
+  "author": {
+    "name": "Jason",
+    "email": "594zhaogaosheng@gmail.com",
+    "url": "https://github.com/zgsgs"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/zgsgs/admin-starter",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zgsgs/admin-starter.git"
-  },
-  "scripts": {
-    "build": "vite-ssg build",
-    "dev": "vite --open",
-    "preview": "vite preview",
-    "preview-https": "serve dist",
-    "test": "vitest -u",
-    "test:commitlint": "vitest --run",
-    "test:e2e": "cypress open",
-    "test:unit": "vitest",
-    "type:check": "vue-tsc --noEmit",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.json --max-warnings 0 --fix"
-  },
-  "dependencies": {
-    "@soybeanjs/vue-admin-layout": "^1.1.1",
-    "@soybeanjs/vue-admin-tab": "^1.0.5",
-    "@vueuse/core": "^8.9.4",
-    "@vueuse/head": "^0.7.13",
-    "axios": "0.27.2",
-    "clipboard": "^2.0.11",
-    "colord": "^2.9.3",
-    "css-render": "^0.15.11",
-    "dayjs": "^1.11.6",
-    "echarts": "^5.4.0",
-    "lodash-es": "^4.17.21",
-    "naive-ui": "^2.33.5",
-    "nprogress": "^0.2.0",
-    "pinia": "^2.0.23",
-    "prism-theme-vars": "^0.2.4",
-    "ua-parser-js": "^1.0.32",
-    "vue": "^3.2.40",
-    "vue-demi": "^0.12.5",
-    "vue-i18n": "^9.2.2",
-    "vue-router": "^4.1.5"
+    "url": "https://github.com/zgsgs/admin-starter.git"
   },
   "bugs": {
     "url": "https://github.com/zgsgs/admin-starter/issues"
   },
-  "homepage": "https://github.com/zgsgs/admin-starter#readme"
+  "keywords": [
+    "Vue",
+    "Vue3",
+    "admin",
+    "admin-template",
+    "vue-admin",
+    "vue-admin-template",
+    "Vite3",
+    "Vite",
+    "vite-admin",
+    "TypeScript",
+    "TS",
+    "NaiveUI",
+    "naive-ui",
+    "naive-admin",
+    "NaiveUI-Admin",
+    "naive-ui-admin",
+    "UnoCSS"
+  ],
+  "scripts": {
+    "dev": "cross-env VITE_SERVICE_ENV=dev vite",
+    "dev:test": "cross-env VITE_SERVICE_ENV=test vite",
+    "dev:prod": "cross-env VITE_SERVICE_ENV=prod vite",
+    "dev:tauri": "pnpm tauri dev",
+    "build": "npm run type:check && cross-env VITE_SERVICE_ENV=prod vite build",
+    "build:dev": "npm run type:check && cross-env VITE_SERVICE_ENV=dev vite build",
+    "build:test": "npm run type:check && cross-env VITE_SERVICE_ENV=test vite build",
+    "build:vercel": "cross-env VITE_HASH_ROUTE=Y VITE_VERCEL=Y vite build",
+    "build:tauri": "pnpm tauri build",
+    "tauri-icon": "pnpm tauri icon ./src-tauri/app-icon.png",
+    "preview": "vite preview",
+    "type:check": "vue-tsc --noEmit --skipLibCheck",
+    "lint": "eslint . --fix",
+    "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.json --max-warnings 0 --fix",
+    "prepare": "husky install",
+    "clean": "pnpm rimraf node_modules pnpm-lock.yaml",
+    "postinstall": "patch-package",
+    "release": "standard-version",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+  },
+  "dependencies": {
+    "@antv/data-set": "^0.11.8",
+    "@antv/g2": "^4.2.8",
+    "@better-scroll/core": "^2.5.0",
+    "@soybeanjs/vue-admin-layout": "^1.1.1",
+    "@soybeanjs/vue-admin-tab": "^1.0.5",
+    "@vueuse/core": "^9.3.1",
+    "axios": "0.27.2",
+    "clipboard": "^2.0.11",
+    "colord": "^2.9.3",
+    "crypto-js": "^4.1.1",
+    "dayjs": "^1.11.5",
+    "echarts": "^5.4.0",
+    "form-data": "^4.0.0",
+    "lodash-es": "^4.17.21",
+    "naive-ui": "2.33.5",
+    "pinia": "^2.0.23",
+    "print-js": "^1.6.0",
+    "qs": "^6.11.0",
+    "swiper": "^8.4.4",
+    "ua-parser-js": "^1.0.32",
+    "vditor": "^3.8.17",
+    "vue": "3.2.41",
+    "vue-i18n": "^9.2.2",
+    "vue-router": "^4.1.5",
+    "vuedraggable": "^4.1.0",
+    "wangeditor": "^4.7.15",
+    "xgplayer": "^2.32.0"
+  },
+  "lint-staged": {
+    "*.{vue,js,jsx,ts,tsx,json}": "eslint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  }
 }

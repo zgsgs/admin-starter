@@ -1,6 +1,10 @@
+/* eslint-disable no-tabs */
 import { viteMockServe } from 'vite-plugin-mock'
 
 export default viteMockServe({
   mockPath: 'mock',
-  injectCode: '\nimport { setupMockServer } from \'../mock\';\nsetupMockServer();\n',
+  injectCode: `
+		import { setupMockServer } from '../mock';
+		setupMockServer();
+	`,
 })

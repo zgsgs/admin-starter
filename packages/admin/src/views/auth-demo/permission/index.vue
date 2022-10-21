@@ -24,7 +24,7 @@ const options: SelectOption[] = roleList as unknown as SelectOption[]
 
 watch(
   () => auth.userInfo.userRole,
-  async() => {
+  async () => {
     app.reloadPage()
   },
 )

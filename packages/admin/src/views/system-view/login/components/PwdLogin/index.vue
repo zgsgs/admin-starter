@@ -75,7 +75,7 @@ function handleLoginOtherAccount(param: { userName: string; password: string }) 
         </n-button>
       </div>
     </n-space>
-    <other-account @login="handleLoginOtherAccount" />
+    <OtherAccount @login="handleLoginOtherAccount" />
   </n-form>
 </template>
 

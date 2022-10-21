@@ -48,13 +48,13 @@ init()
 </script>
 
 <template>
-  <dark-mode-container class="global-tab flex-y-center w-full pl-16px" :style="{ height: theme.tab.height + 'px' }">
+  <dark-mode-container class="global-tab flex-y-center w-full pl-16px" :style="{ height: `${theme.tab.height}px` }">
     <div ref="bsWrapper" class="flex-1-hidden h-full">
       <better-scroll ref="bsScroll" :options="{ scrollX: true, scrollY: false, click: canClick }">
-        <tab-detail @scroll="handleScroll" />
+        <TabDetail @scroll="handleScroll" />
       </better-scroll>
     </div>
-    <reload-button />
+    <ReloadButton />
   </dark-mode-container>
 </template>
 

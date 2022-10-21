@@ -83,9 +83,9 @@ watch(
 <template>
   <dark-mode-container class="flex h-full" :inverted="theme.sider.inverted" @mouseleave="resetFirstDegreeMenus">
     <div class="flex-1 flex-col-stretch h-full">
-      <global-logo :show-title="false" :style="{ height: theme.header.height + 'px' }" />
+      <GlobalLogo :show-title="false" :style="{ height: `${theme.header.height}px` }" />
       <n-scrollbar class="flex-1-hidden">
-        <mix-menu-detail
+        <MixMenuDetail
           v-for="item in firstDegreeMenus"
           :key="item.routeName"
           :route-name="item.routeName"
@@ -96,9 +96,9 @@ watch(
           @click="handleMixMenu(item.routeName, item.hasChildren)"
         />
       </n-scrollbar>
-      <mix-menu-collapse />
+      <MixMenuCollapse />
     </div>
-    <mix-menu-drawer :visible="drawerVisible" :menus="activeChildMenus" />
+    <MixMenuDrawer :visible="drawerVisible" :menus="activeChildMenus" />
   </dark-mode-container>
 </template>
 

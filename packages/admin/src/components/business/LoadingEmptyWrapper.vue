@@ -1,7 +1,18 @@
 <script setup lang="ts">
 import { computed, nextTick, onUnmounted, watch } from 'vue'
-import { NETWORK_ERROR_MSG } from '~/build'
 import { useBoolean } from '@/hooks'
+import { NETWORK_ERROR_MSG } from '~/build/config'
+
+const props = withDefaults(defineProps<Props>(), {
+  loading: false,
+  empty: false,
+  loadingSize: 'medium',
+  placeholderClass: 'bg-white dark:bg-dark transition-background-color duration-300 ease-in-out',
+  emptyDesc: '暂无数据',
+  iconClass: 'text-320px text-primary',
+  descClass: 'text-16px text-[#666]',
+  showNetworkReload: false,
+})
 
 defineOptions({ name: 'LoadingEmptyWrapper' })
 
@@ -23,17 +34,6 @@ interface Props {
   /** 显示网络异常的重试点击按钮 */
   showNetworkReload?: boolean
 }
-
-const props = withDefaults(defineProps<Props>(), {
-  loading: false,
-  empty: false,
-  loadingSize: 'medium',
-  placeholderClass: 'bg-white dark:bg-dark transition-background-color duration-300 ease-in-out',
-  emptyDesc: '暂无数据',
-  iconClass: 'text-320px text-primary',
-  descClass: 'text-16px text-[#666]',
-  showNetworkReload: false,
-})
 
 // 网络状态
 const { bool: network, setBool: setNetwork } = useBoolean(window.navigator.onLine)

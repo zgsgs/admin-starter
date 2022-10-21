@@ -3,19 +3,19 @@ import ColorCheckbox from './ColorCheckbox.vue'
 import { traditionColors } from '@/settings'
 import { useThemeStore } from '@/store'
 
+defineProps<Props>()
+
+const emit = defineEmits<Emits>()
+
 defineOptions({ name: 'ColorModal' })
 
 interface Props {
   visible: boolean
 }
 
-defineProps<Props>()
-
 interface Emits {
   (e: 'close'): void
 }
-
-const emit = defineEmits<Emits>()
 
 const theme = useThemeStore()
 
@@ -35,7 +35,7 @@ function handleClose() {
       <n-tab-pane v-for="item in traditionColors" :key="item.label" :name="item.label" :tab="item.label">
         <n-grid :cols="8" :x-gap="16" :y-gap="8">
           <n-grid-item v-for="i in item.data" :key="i.label">
-            <color-checkbox
+            <ColorCheckbox
               class="!w-full !h-36px !rounded-4px"
               :color="i.color"
               :checked="i.color === theme.themeColor"

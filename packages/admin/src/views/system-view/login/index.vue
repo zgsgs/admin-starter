@@ -72,13 +72,13 @@ const bgColor = computed(() => {
           </h3>
           <div class="pt-24px">
             <transition name="fade-slide" mode="out-in" appear>
-              <component :is="activeModule.component" />
+              <Component :is="activeModule.component" />
             </transition>
           </div>
         </main>
       </div>
     </n-card>
-    <login-bg :theme-color="bgThemeColor" />
+    <LoginBg :theme-color="bgThemeColor" />
   </div>
 </template>
 

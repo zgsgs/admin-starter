@@ -12,16 +12,16 @@ const theme = useThemeStore()
     界面功能
   </n-divider>
   <n-space vertical size="large">
-    <setting-menu label="侧边栏反转色">
+    <SettingMenu label="侧边栏反转色">
       <n-switch :value="theme.sider.inverted" @update:value="theme.setSiderInverted" />
-    </setting-menu>
-    <setting-menu label="头部反转色">
+    </SettingMenu>
+    <SettingMenu label="头部反转色">
       <n-switch :value="theme.header.inverted" @update:value="theme.setHeaderInverted" />
-    </setting-menu>
-    <setting-menu label="固定头部和多页签">
+    </SettingMenu>
+    <SettingMenu label="固定头部和多页签">
       <n-switch :value="theme.fixedHeaderAndTab" @update:value="theme.setIsFixedHeaderAndTab" />
-    </setting-menu>
-    <setting-menu label="顶部菜单位置">
+    </SettingMenu>
+    <SettingMenu label="顶部菜单位置">
       <n-select
         class="w-120px"
         size="small"
@@ -29,8 +29,8 @@ const theme = useThemeStore()
         :options="theme.menu.horizontalPositionList"
         @update:value="theme.setHorizontalMenuPosition"
       />
-    </setting-menu>
-    <setting-menu label="头部高度">
+    </SettingMenu>
+    <SettingMenu label="头部高度">
       <n-input-number
         class="w-120px"
         size="small"
@@ -38,8 +38,8 @@ const theme = useThemeStore()
         :step="1"
         @update:value="theme.setHeaderHeight"
       />
-    </setting-menu>
-    <setting-menu label="多页签高度">
+    </SettingMenu>
+    <SettingMenu label="多页签高度">
       <n-input-number
         class="w-120px"
         size="small"
@@ -47,11 +47,11 @@ const theme = useThemeStore()
         :step="1"
         @update:value="theme.setTabHeight"
       />
-    </setting-menu>
-    <setting-menu label="多页签缓存">
+    </SettingMenu>
+    <SettingMenu label="多页签缓存">
       <n-switch :value="theme.tab.isCache" @update:value="theme.setTabIsCache" />
-    </setting-menu>
-    <setting-menu label="侧边栏展开宽度">
+    </SettingMenu>
+    <SettingMenu label="侧边栏展开宽度">
       <n-input-number
         class="w-120px"
         size="small"
@@ -59,8 +59,8 @@ const theme = useThemeStore()
         :step="10"
         @update:value="theme.setSiderWidth"
       />
-    </setting-menu>
-    <setting-menu label="左侧混合侧边栏展开宽度">
+    </SettingMenu>
+    <SettingMenu label="左侧混合侧边栏展开宽度">
       <n-input-number
         class="w-120px"
         size="small"
@@ -68,10 +68,10 @@ const theme = useThemeStore()
         :step="5"
         @update:value="theme.setMixSiderWidth"
       />
-    </setting-menu>
-    <setting-menu label="固定底部">
+    </SettingMenu>
+    <SettingMenu label="固定底部">
       <n-switch :value="theme.footer.fixed" @update:value="theme.setFooterIsFixed" />
-    </setting-menu>
+    </SettingMenu>
   </n-space>
 </template>
 

@@ -4,8 +4,8 @@ import { WorkbenchHeader, WorkbenchMain } from './components'
 
 <template>
   <n-space :vertical="true" :size="16">
-    <workbench-header />
-    <workbench-main />
+    <WorkbenchHeader />
+    <WorkbenchMain />
   </n-space>
 </template>
 

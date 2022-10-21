@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { useAppStore, useRouteStore, useThemeStore } from '@/store'
 
+withDefaults(defineProps<Props>(), {
+  showPadding: true,
+})
+
+const emit = defineEmits<Emits>()
+
 defineOptions({ name: 'GlobalContent' })
 
 interface Props {
@@ -8,33 +14,27 @@ interface Props {
   showPadding?: boolean
 }
 
-withDefaults(defineProps<Props>(), {
-  showPadding: true,
-})
-
 interface Emits {
   /** 禁止主体溢出 */
-  (e: 'hide-main-overflow', hidden: boolean): void
+  (e: 'hideMainOverflow', hidden: boolean): void
 }
-
-const emit = defineEmits<Emits>()
 
 const app = useAppStore()
 const theme = useThemeStore()
 const routeStore = useRouteStore()
 
 function handleBeforeLeave() {
-  emit('hide-main-overflow', true)
+  emit('hideMainOverflow', true)
 }
 function handleAfterEnter() {
-  emit('hide-main-overflow', false)
+  emit('hideMainOverflow', false)
 }
 </script>
 
 <template>
   <div
     :class="{ 'p-16px': showPadding }"
-    class="h-full bg-[#f6f9f8] dark:bg-[#101014] transition duration-300 ease-in-out"
+    class="h-full bg-[#f6f9f8] transition ease-in-out duration-300 dark:bg-[#101014]"
   >
     <router-view v-slot="{ Component, route }">
       <transition

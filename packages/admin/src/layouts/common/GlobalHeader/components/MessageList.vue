@@ -1,24 +1,25 @@
 <script lang="ts" setup>
+withDefaults(defineProps<Props>(), {
+  list: () => [],
+})
+
+const emit = defineEmits<Emits>()
+
 defineOptions({ name: 'MessageList' })
 
 interface Props {
   list?: Message.List[]
 }
 
-withDefaults(defineProps<Props>(), {
-  list: () => [],
-})
-
 interface Emits {
   (e: 'read', val: number): void
 }
-
-const emit = defineEmits<Emits>()
 
 function handleRead(index: number) {
   emit('read', index)
 }
 </script>
+
 <template>
   <n-scrollbar class="max-h-360px">
     <n-list>

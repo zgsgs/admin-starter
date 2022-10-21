@@ -7,6 +7,10 @@ import SearchFooter from './SearchFooter.vue'
 import { useRouteStore } from '@/store'
 import { useBasicLayout } from '@/hooks'
 
+const props = defineProps<Props>()
+
+const emit = defineEmits<Emits>()
+
 defineOptions({ name: 'SearchModal' })
 
 interface Props {
@@ -14,13 +18,9 @@ interface Props {
   value: boolean
 }
 
-const props = defineProps<Props>()
-
 interface Emits {
   (e: 'update:value', val: boolean): void
 }
-
-const emit = defineEmits<Emits>()
 
 const { isMobile } = useBasicLayout()
 const router = useRouter()
@@ -42,7 +42,7 @@ const show = computed({
   },
 })
 
-watch(show, async(val) => {
+watch(show, async (val) => {
   if (val) {
     /** 自动聚焦 */
     await nextTick()
@@ -139,10 +139,10 @@ onKeyStroke('ArrowDown', handleDown)
 
     <div class="mt-20px">
       <n-empty v-if="resultOptions.length === 0" description="暂无搜索结果" />
-      <search-result v-else v-model:value="activePath" :options="resultOptions" @enter="handleEnter" />
+      <SearchResult v-else v-model:value="activePath" :options="resultOptions" @enter="handleEnter" />
     </div>
     <template #footer>
-      <search-footer v-if="!isMobile" />
+      <SearchFooter v-if="!isMobile" />
     </template>
   </n-modal>
 </template>

@@ -3,6 +3,11 @@ import { computed } from 'vue'
 import type { VNodeChild } from 'vue'
 import { useBoolean } from '@/hooks'
 
+const props = withDefaults(defineProps<Props>(), {
+  icon: undefined,
+  isMini: false,
+})
+
 defineOptions({ name: 'MixMenuDetail' })
 
 interface Props {
@@ -17,11 +22,6 @@ interface Props {
   /** mini尺寸的路由 */
   isMini?: boolean
 }
-
-const props = withDefaults(defineProps<Props>(), {
-  icon: undefined,
-  isMini: false,
-})
 
 const { bool: isHover, setTrue, setFalse } = useBoolean()
 

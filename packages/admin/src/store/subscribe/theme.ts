@@ -38,7 +38,6 @@ export default function subscribeThemeStore() {
     (newValue) => {
       if (newValue)
         addDarkClass()
-
       else
         removeDarkClass()
     },
@@ -61,7 +60,6 @@ export default function subscribeThemeStore() {
   const stopWidth = watch(width, (newValue) => {
     if (newValue < theme.layout.minWidth)
       document.documentElement.style.overflowX = 'auto'
-
     else
       document.documentElement.style.overflowX = 'hidden'
   })

@@ -136,7 +136,6 @@ export function useEcharts(
     if (canRender()) {
       if (!isRendered())
         render()
-
       else
         resize()
     }

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /** 权限路由相关类型 */
 declare namespace AuthRoute {
   /** 多级路由分割符号 */

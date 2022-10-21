@@ -15,6 +15,8 @@ import {
 import { useBasicLayout } from '@/hooks'
 import { useThemeStore } from '@/store'
 
+defineProps<Props>()
+
 defineOptions({ name: 'GlobalHeader' })
 
 interface Props {
@@ -26,8 +28,6 @@ interface Props {
   showMenuCollapse: GlobalHeaderProps['showMenuCollapse']
 }
 
-defineProps<Props>()
-
 const theme = useThemeStore()
 const { isMobile } = useBasicLayout()
 
@@ -36,20 +36,20 @@ const showButton = import.meta.env.PROD && import.meta.env.VITE_VERCEL !== 'Y'
 
 <template>
   <dark-mode-container class="global-header flex-y-center h-full" :inverted="theme.header.inverted">
-    <global-logo v-if="showLogo" :show-title="true" class="h-full" :style="{ width: theme.sider.width + 'px' }" />
+    <GlobalLogo v-if="showLogo" :show-title="true" class="h-full" :style="{ width: `${theme.sider.width}px` }" />
     <div v-if="!showHeaderMenu" class="flex-1-hidden flex-y-center h-full">
-      <menu-collapse v-if="showMenuCollapse || isMobile" />
-      <global-breadcrumb v-if="theme.header.crumb.visible && !isMobile" />
+      <MenuCollapse v-if="showMenuCollapse || isMobile" />
+      <GlobalBreadcrumb v-if="theme.header.crumb.visible && !isMobile" />
     </div>
-    <header-menu v-else />
+    <HeaderMenu v-else />
     <div class="flex justify-end h-full">
-      <global-search />
-      <github-site />
-      <full-screen />
-      <theme-mode />
-      <system-message />
-      <setting-button v-if="showButton" />
-      <user-avatar />
+      <GlobalSearch />
+      <GithubSite />
+      <FullScreen />
+      <ThemeMode />
+      <SystemMessage />
+      <SettingButton v-if="showButton" />
+      <UserAvatar />
     </div>
   </dark-mode-container>
 </template>

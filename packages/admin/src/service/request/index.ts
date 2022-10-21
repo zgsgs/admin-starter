@@ -1,5 +1,6 @@
+/* 这里必须指到 config 目录 */
 import { createRequest } from './request'
-import { getServiceEnvConfig } from '~/build'
+import { getServiceEnvConfig } from '~/build/config'
 
 const { url, urlPattern, secondUrl, secondUrlPattern } = getServiceEnvConfig(import.meta.env)
 

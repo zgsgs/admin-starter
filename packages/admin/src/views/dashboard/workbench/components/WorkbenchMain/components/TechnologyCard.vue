@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const props = defineProps<Props>()
+
 defineOptions({ name: 'DashboardWorkbenchMainTechnologyCard' })
 
 interface Props {
@@ -15,8 +17,6 @@ interface Props {
   /** 图标颜色 */
   iconColor?: string
 }
-
-const props = defineProps<Props>()
 
 function handleOpenSite() {
   window.open(props.site, '_blank')

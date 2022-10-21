@@ -12,16 +12,16 @@ const theme = useThemeStore()
     界面显示
   </n-divider>
   <n-space vertical size="large">
-    <setting-menu label="面包屑">
+    <SettingMenu label="面包屑">
       <n-switch :value="theme.header.crumb.visible" @update:value="theme.setHeaderCrumbVisible" />
-    </setting-menu>
-    <setting-menu label="面包屑图标">
+    </SettingMenu>
+    <SettingMenu label="面包屑图标">
       <n-switch :value="theme.header.crumb.showIcon" @update:value="theme.setHeaderCrumbIconVisible" />
-    </setting-menu>
-    <setting-menu label="多页签">
+    </SettingMenu>
+    <SettingMenu label="多页签">
       <n-switch :value="theme.tab.visible" @update:value="theme.setTabVisible" />
-    </setting-menu>
-    <setting-menu label="多页签风格">
+    </SettingMenu>
+    <SettingMenu label="多页签风格">
       <n-select
         class="w-120px"
         size="small"
@@ -29,11 +29,11 @@ const theme = useThemeStore()
         :options="theme.tab.modeList"
         @update:value="theme.setTabMode"
       />
-    </setting-menu>
-    <setting-menu label="页面切换动画">
+    </SettingMenu>
+    <SettingMenu label="页面切换动画">
       <n-switch :value="theme.page.animate" @update:value="theme.setPageIsAnimate" />
-    </setting-menu>
-    <setting-menu label="页面切换动画类型">
+    </SettingMenu>
+    <SettingMenu label="页面切换动画类型">
       <n-select
         class="w-120px"
         size="small"
@@ -41,7 +41,7 @@ const theme = useThemeStore()
         :options="theme.page.animateModeList"
         @update:value="theme.setPageAnimateMode"
       />
-    </setting-menu>
+    </SettingMenu>
   </n-space>
 </template>
 

@@ -23,7 +23,7 @@ function handleSearch() {
     >
       <icon-uil-search class="text-20px" />
     </hover-container>
-    <search-modal v-model:value="show" />
+    <SearchModal v-model:value="show" />
   </div>
 </template>
 

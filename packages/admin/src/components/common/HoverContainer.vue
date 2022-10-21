@@ -1,5 +1,13 @@
 <script lang="ts" setup>
+import { computed } from 'vue'
 import type { PopoverPlacement } from 'naive-ui'
+
+const props = withDefaults(defineProps<Props>(), {
+  tooltipContent: '',
+  placement: 'bottom',
+  contentClass: '',
+  inverted: false,
+})
 
 defineOptions({ name: 'HoverContainer' })
 
@@ -14,13 +22,6 @@ interface Props {
   inverted?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  tooltipContent: '',
-  placement: 'bottom',
-  contentClass: '',
-  inverted: false,
-})
-
 const showTooltip = computed(() => Boolean(props.tooltipContent))
 
 const contentClassName = computed(
@@ -32,14 +33,14 @@ const contentClassName = computed(
   <div v-if="showTooltip">
     <n-tooltip :placement="placement" trigger="hover">
       <template #trigger>
-        <div class="cursor-pointer flex-center h-full dark:hover:bg-[#333]" :class="contentClassName">
+        <div class="flex-center h-full cursor-pointer dark:hover:bg-[#333]" :class="contentClassName">
           <slot />
         </div>
       </template>
       {{ tooltipContent }}
     </n-tooltip>
   </div>
-  <div v-else class="cursor-pointer flex-center dark:hover:bg-[#333]" :class="contentClassName">
+  <div v-else class="flex-center cursor-pointer dark:hover:bg-[#333]" :class="contentClassName">
     <slot />
   </div>
 </template>

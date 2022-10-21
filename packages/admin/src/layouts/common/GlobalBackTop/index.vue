@@ -12,4 +12,5 @@ const show = computed(() => scrollY.value > 180)
 <template>
   <n-back-top :show="show" class="z-1000" />
 </template>
+
 <style scoped></style>

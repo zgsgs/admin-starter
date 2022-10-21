@@ -6,6 +6,8 @@ import { useAppStore, useThemeStore } from '@/store'
 import { useAppInfo, useRouterPush } from '@/hooks'
 import { getActiveKeyPathsOfMenus } from '@/utils'
 
+const props = defineProps<Props>()
+
 defineOptions({ name: 'MixMenuDrawer' })
 
 interface Props {
@@ -14,8 +16,6 @@ interface Props {
   /** 子菜单数据 */
   menus: GlobalMenuOption[]
 }
-
-const props = defineProps<Props>()
 
 const route = useRoute()
 const app = useAppStore()
@@ -49,13 +49,13 @@ watch(
 <template>
   <div
     class="relative h-full transition-width duration-300 ease-in-out"
-    :style="{ width: app.mixSiderFixed ? theme.sider.mixChildMenuWidth + 'px' : '0px' }"
+    :style="{ width: app.mixSiderFixed ? `${theme.sider.mixChildMenuWidth}px` : '0px' }"
   >
     <dark-mode-container
       class="drawer-shadow absolute-lt flex-col-stretch h-full nowrap-hidden"
-      :style="{ width: showDrawer ? theme.sider.mixChildMenuWidth + 'px' : '0px' }"
+      :style="{ width: showDrawer ? `${theme.sider.mixChildMenuWidth}px` : '0px' }"
     >
-      <header class="header-height flex-y-center justify-between" :style="{ height: theme.header.height + 'px' }">
+      <header class="header-height flex-y-center justify-between" :style="{ height: `${theme.header.height}px` }">
         <h2 class="text-primary pl-8px text-16px font-bold">
           {{ title }}
         </h2>

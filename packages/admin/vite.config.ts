@@ -1,8 +1,16 @@
 import { defineConfig, loadEnv } from 'vite'
-import { createViteProxy, getRootPath, getServiceEnvConfig, getSrcPath, getTestPath, setupVitePlugins, viteDefine } from './build'
+import {
+  createViteProxy,
+  getRootPath,
+  getServiceEnvConfig,
+  getSrcPath,
+  getTestPath,
+  setupVitePlugins,
+  viteDefine,
+} from './build'
 
 export default defineConfig((configEnv) => {
-  const viteEnv = loadEnv(configEnv.mode, process.cwd()) as ImportMetaEnv
+  const viteEnv = loadEnv(configEnv.mode, process.cwd()) as unknown as ImportMetaEnv
 
   const rootPath = getRootPath()
   const srcPath = getSrcPath()
@@ -21,11 +29,30 @@ export default defineConfig((configEnv) => {
     },
     define: viteDefine,
     plugins: setupVitePlugins(viteEnv),
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "./src/styles/scss/global.scss" as *;',
+        },
+      },
+    },
     server: {
       host: '0.0.0.0',
-      port: 3200,
       open: true,
       proxy: createViteProxy(isOpenProxy, envConfig),
+    },
+    optimizeDeps: {
+      include: [
+        '@antv/data-set',
+        '@antv/g2',
+        '@better-scroll/core',
+        'echarts',
+        'swiper',
+        'swiper/vue',
+        'vditor',
+        'wangeditor',
+        'xgplayer',
+      ],
     },
     build: {
       reportCompressedSize: false,

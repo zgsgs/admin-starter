@@ -1,7 +1,8 @@
-import { useBoolean } from './useBoolean'
+import { nextTick } from 'vue'
+import useBoolean from './useBoolean'
 
 /** 重载 */
-export function useReload() {
+export default function useReload() {
   // 重载的标志
   const { bool: reloadFlag, setTrue, setFalse } = useBoolean(true)
 

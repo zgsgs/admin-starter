@@ -43,7 +43,7 @@ export default function unplugin(viteEnv: ImportMetaEnv) {
     }),
     AutoImport({
       imports: [
-        'vue-demi',
+        'vue',
         'vue-router',
         'vue-i18n',
         'vue/macros',

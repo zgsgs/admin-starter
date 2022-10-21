@@ -7,7 +7,7 @@ import { createPermissionGuard } from './permission'
  * @param router - 路由实例
  */
 export function createRouterGuard(router: Router) {
-  router.beforeEach(async(to, from, next) => {
+  router.beforeEach(async (to, from, next) => {
     // 开始 loadingBar
     window.$loadingBar?.start()
     // 页面跳转权限处理

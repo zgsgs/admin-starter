@@ -1,4 +1,12 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
+const props = withDefaults(defineProps<Props>(), {
+  dark: false,
+})
+
+const emit = defineEmits<Emits>()
+
 defineOptions({ name: 'DarkModeSwitch' })
 
 interface Props {
@@ -6,15 +14,9 @@ interface Props {
   dark?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  dark: false,
-})
-
 interface Emits {
   (e: 'update:dark', darkMode: boolean): void
 }
-
-const emit = defineEmits<Emits>()
 
 const darkMode = computed({
   get() {
@@ -31,7 +33,7 @@ function handleSwitch() {
 </script>
 
 <template>
-  <div class="cursor-pointer flex-center text-18px" @click="handleSwitch">
+  <div class="flex-center text-18px cursor-pointer" @click="handleSwitch">
     <icon-mdi-moon-waning-crescent v-if="darkMode" />
     <icon-mdi-white-balance-sunny v-else />
   </div>

@@ -4,6 +4,13 @@ import type { DropdownOption } from 'naive-ui'
 import { useAppStore, useTabStore } from '@/store'
 import { useIconRender } from '@/hooks'
 
+const props = withDefaults(defineProps<Props>(), {
+  visible: false,
+  currentPath: '',
+})
+
+const emit = defineEmits<Emits>()
+
 defineOptions({ name: 'ContextMenu' })
 
 interface Props {
@@ -17,16 +24,9 @@ interface Props {
   y: number
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  visible: false,
-  currentPath: '',
-})
-
 interface Emits {
   (e: 'update:visible', visible: boolean): void
 }
-
-const emit = defineEmits<Emits>()
 
 const app = useAppStore()
 const tab = useTabStore()

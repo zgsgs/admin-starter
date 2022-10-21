@@ -2,6 +2,10 @@
 import { computed } from 'vue'
 import { useThemeStore } from '@/store'
 
+const props = defineProps<Props>()
+
+const emit = defineEmits<Emits>()
+
 defineOptions({ name: 'SearchResult' })
 
 interface Props {
@@ -9,14 +13,10 @@ interface Props {
   options: AuthRoute.Route[]
 }
 
-const props = defineProps<Props>()
-
 interface Emits {
   (e: 'update:value', val: string): void
   (e: 'enter'): void
 }
-
-const emit = defineEmits<Emits>()
 
 const theme = useThemeStore()
 
@@ -47,7 +47,7 @@ function handleTo() {
           class="bg-[#e5e7eb] dark:bg-dark h-56px mt-8px px-14px rounded-4px cursor-pointer flex-y-center justify-between"
           :style="{
             background: item.path === active ? theme.themeColor : '',
-            color: item.path === active ? '#fff' : ''
+            color: item.path === active ? '#fff' : '',
           }"
           @click="handleTo"
           @mouseenter="handleMouse(item)"

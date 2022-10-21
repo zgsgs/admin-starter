@@ -9,7 +9,7 @@ import {
   NETWORK_ERROR_MSG,
   REQUEST_TIMEOUT_CODE,
   REQUEST_TIMEOUT_MSG,
-} from '~/build'
+} from '~/build/config'
 
 type ErrorStatus = keyof typeof ERROR_STATUS
 

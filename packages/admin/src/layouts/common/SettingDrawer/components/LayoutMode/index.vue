@@ -12,7 +12,7 @@ const theme = useThemeStore()
     布局模式
   </n-divider>
   <n-space justify="space-between">
-    <layout-checkbox
+    <LayoutCheckbox
       v-for="item in theme.layout.modeList"
       :key="item.value"
       :mode="item.value"

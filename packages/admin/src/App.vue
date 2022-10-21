@@ -1,15 +1,26 @@
 <script setup lang="ts">
-// https://github.com/vueuse/head
-// you can use this to manipulate the document head in any components,
-// they will be rendered correctly in the html results with vite-ssg
-useHead({
-  title: 'Vitesse',
-  meta: [
-    { name: 'description', content: 'Opinionated Vite Starter Template' },
-  ],
-})
+import { dateZhCN, zhCN } from 'naive-ui'
+import { subscribeStore, useThemeStore } from '@/store'
+import { useGlobalEvents } from '@/hooks'
+
+const theme = useThemeStore()
+
+subscribeStore()
+useGlobalEvents()
 </script>
 
 <template>
-  <RouterView />
+  <n-config-provider
+    :theme="theme.naiveTheme"
+    :theme-overrides="theme.naiveThemeOverrides"
+    :locale="zhCN"
+    :date-locale="dateZhCN"
+    class="h-full"
+  >
+    <naive-provider>
+      <router-view />
+    </naive-provider>
+  </n-config-provider>
 </template>
+
+<style scoped></style>

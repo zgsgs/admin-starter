@@ -1,4 +1,6 @@
 <script setup lang="ts">
+defineProps<Props>()
+
 defineOptions({ name: 'DashboardWorkbenchMainShortcutsCard' })
 
 interface Props {
@@ -9,8 +11,6 @@ interface Props {
   /** 图标颜色 */
   iconColor: string
 }
-
-defineProps<Props>()
 </script>
 
 <template>

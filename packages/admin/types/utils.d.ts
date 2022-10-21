@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 declare namespace TypeUtil {
   type Noop = (...args: any) => any
 

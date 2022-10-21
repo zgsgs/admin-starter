@@ -101,7 +101,7 @@ const endMove = () => {
               :cy="ellipseConfig.cY"
               :rx="ellipseConfig.rX"
               :ry="ellipseConfig.rY"
-              :style="{ strokeWidth: ellipseConfig.strokeWidth + 'px' }"
+              :style="{ strokeWidth: `${ellipseConfig.strokeWidth}px` }"
               class="fill-none stroke-primary"
             />
           </svg>

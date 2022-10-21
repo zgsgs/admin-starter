@@ -51,7 +51,7 @@ const cardData: CardData[] = [
 <template>
   <n-grid cols="s:1 m:2 l:4" responsive="screen" :x-gap="16" :y-gap="16">
     <n-grid-item v-for="item in cardData" :key="item.id">
-      <gradient-bg class="h-100px" :start-color="item.colors[0]" :end-color="item.colors[1]">
+      <GradientBg class="h-100px" :start-color="item.colors[0]" :end-color="item.colors[1]">
         <h3 class="text-16px">
           {{ item.title }}
         </h3>
@@ -64,7 +64,7 @@ const cardData: CardData[] = [
             class="text-30px text-white dark:text-dark"
           />
         </div>
-      </gradient-bg>
+      </GradientBg>
     </n-grid-item>
   </n-grid>
 </template>

@@ -4,9 +4,9 @@ import { BottomPart, DataCard, TopChart } from './components'
 
 <template>
   <n-space :vertical="true" :size="16">
-    <top-chart />
-    <data-card />
-    <bottom-part />
+    <TopChart />
+    <DataCard />
+    <BottomPart />
   </n-space>
 </template>
 

@@ -202,7 +202,7 @@ function handleLoadMore() {
           :empty="item.list.length === 0"
           placeholder-class="bg-$n-color transition-background-color duration-300 ease-in-out"
         >
-          <message-list :list="item.list" @read="handleRead" />
+          <MessageList :list="item.list" @read="handleRead" />
         </loading-empty-wrapper>
       </n-tab-pane>
     </n-tabs>
@@ -219,4 +219,5 @@ function handleLoadMore() {
     </div>
   </n-popover>
 </template>
+
 <style scoped></style>

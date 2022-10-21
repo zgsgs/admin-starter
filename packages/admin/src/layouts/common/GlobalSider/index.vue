@@ -11,8 +11,8 @@ const isVerticalMix = computed(() => theme.layout.mode === 'vertical-mix')
 </script>
 
 <template>
-  <vertical-mix-sider v-if="isVerticalMix" class="global-sider" />
-  <vertical-sider v-else class="global-sider" />
+  <VerticalMixSider v-if="isVerticalMix" class="global-sider" />
+  <VerticalSider v-else class="global-sider" />
 </template>
 
 <style scoped>

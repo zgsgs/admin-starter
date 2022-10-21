@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { defineComponent, h } from 'vue'
 import { useDialog, useLoadingBar, useMessage, useNotification } from 'naive-ui'
 
 defineOptions({ name: 'NaiveProvider' })
@@ -28,10 +29,11 @@ const NaiveProviderContent = defineComponent({
       <n-notification-provider>
         <n-message-provider>
           <slot />
-          <naive-provider-content />
+          <NaiveProviderContent />
         </n-message-provider>
       </n-notification-provider>
     </n-dialog-provider>
   </n-loading-bar-provider>
 </template>
+
 <style scoped></style>

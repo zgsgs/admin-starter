@@ -103,8 +103,11 @@ dist
 
 # TernJS port file
 .tern-port
-auto-imports.d.ts
-components.d.ts
 
 # Turborepo build output
 .turbo
+
+# Other
+stats.html
+auto-imports.d.ts
+components.d.ts

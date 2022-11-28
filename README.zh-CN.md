@@ -179,3 +179,6 @@ pnpm build
 ### 部署到 Netlify
 
 前往 [Netlify](https://app.netlify.com/start) 并选择你的仓库, 一路 `OK` 下去，稍等一下后，你的应用将被创建.
+
+封装 图表组件
+封装 表单生成器

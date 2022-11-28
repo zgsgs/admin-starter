@@ -1,10 +1,10 @@
 import { computed } from 'vue'
 import { useLoading } from '../common'
-import useCountDown from './useCountDown'
+import { useCountDown } from './useCountDown'
 import { fetchSmsCode } from '@/service'
 import { REGEXP_PHONE } from '~/build/config'
 
-export default function useSmsCode() {
+export function useSmsCode() {
   const { loading, startLoading, endLoading } = useLoading()
   const { counts, start, isCounting } = useCountDown(60)
 

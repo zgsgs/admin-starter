@@ -1,4 +1,4 @@
-FROM node:16.17.0 as builder
+FROM node:19.8.1 as builder
 
 ENV WORKDIR=/soybean-admin
 

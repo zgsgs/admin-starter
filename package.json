@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@amap/amap-jsapi-types": "^0.0.8",
-    "@antfu/eslint-config": "^0.27.0",
+    "@antfu/eslint-config": "^0.43.0",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@iconify/json": "^2.1.122",

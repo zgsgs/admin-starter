@@ -2,7 +2,7 @@
   "name": "@admin-starter/admin",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "pnpm@7.5.0",
+  "packageManager": "pnpm@7.33.7",
   "description": "A fresh and elegant admin template, based on Vue3、Vite3、TypeScript、NaiveUI and UnoCSS. 一个基于Vue3、Vite3、TypeScript、NaiveUI and UnoCSS的清新优雅的中后台模版。",
   "author": {
     "name": "Jason",

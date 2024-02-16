@@ -1,7 +1,7 @@
 {
   "name": "admin-starter",
   "private": true,
-  "packageManager": "pnpm@7.5.0",
+  "packageManager": "pnpm@7.33.7",
   "author": "Jason",
   "license": "ISC",
   "homepage": "https://github.com/zgsgs/admin-starter#readme",

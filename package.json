@@ -28,7 +28,7 @@
     "plop:api": "turbo run api"
   },
   "devDependencies": {
-    "@amap/amap-jsapi-types": "^0.0.8",
+    "@amap/amap-jsapi-types": "^0.0.15",
     "@antfu/eslint-config": "^0.27.0",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
